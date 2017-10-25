@@ -16,7 +16,7 @@
             var xNorm = (x - mean) / sd;
             var aNorm = (a - mean) / sd;
             var bNorm = (b - mean) / sd;
-            var z = StandardNormalDistribution.Cdf(aNorm) - StandardNormalDistribution.Cdf(bNorm);
+            var z = StandardNormalDistribution.Cdf(bNorm) - StandardNormalDistribution.Cdf(aNorm);
             return StandardNormalDistribution.Pdf(xNorm) / (sd * z);
         }
 
@@ -48,8 +48,8 @@
             var xNorm = (x - mean) / sd;
             var aNorm = (a - mean) / sd;
             var bNorm = (b - mean) / sd;
-            var z = StandardNormalDistribution.Cdf(aNorm) - StandardNormalDistribution.Cdf(bNorm);
-            return StandardNormalDistribution.Cdf(xNorm) - StandardNormalDistribution.Cdf(aNorm) / z;
+            var z = StandardNormalDistribution.Cdf(bNorm) - StandardNormalDistribution.Cdf(aNorm);
+            return (StandardNormalDistribution.Cdf(xNorm) - StandardNormalDistribution.Cdf(aNorm)) / z;
         }
         
         /// <summary>
@@ -78,7 +78,7 @@
         {
             var aNorm = (a - mean) / sd;
             var bNorm = (b - mean) / sd;
-            var z = StandardNormalDistribution.Cdf(aNorm) - StandardNormalDistribution.Cdf(bNorm);
+            var z = StandardNormalDistribution.Cdf(bNorm) - StandardNormalDistribution.Cdf(aNorm);
             return mean + (StandardNormalDistribution.Pdf(aNorm) - StandardNormalDistribution.Pdf(bNorm)) / z * sd;
         }
 
